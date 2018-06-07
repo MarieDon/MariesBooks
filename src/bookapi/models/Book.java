@@ -4,10 +4,10 @@ public class Book {
 	public String title;
 	public String date;
 	public String publisher;
-	public String bookID;
+	public Long bookID;
 	
 	
-	public Book(String title, String date, String publisher, String bookID) {
+	public Book(String title, String date, String publisher, Long bookID) {
 		super();
 		this.title = title;
 		this.date = date;
@@ -34,10 +34,10 @@ public class Book {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	public String getBookID() {
+	public Long getBookID() {
 		return bookID;
 	}
-	public void setBookID(String bookID) {
+	public void setBookID(Long bookID) {
 		this.bookID = bookID;
 	}
 

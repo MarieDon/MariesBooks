@@ -1,5 +1,6 @@
 package bookapi.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import bookapi.models.Book;
@@ -7,15 +8,16 @@ import bookapi.models.Ratings;
 import bookapi.models.User;
 
 public interface LibraryAPI {
+	
 	/**Users**/
 	public void addUser(String fName, String lName, int age, char gender, String job);
 	public void removeUser(int userID);
-	public List<User> getUser();
+	public Collection<User> getUser();
 	
 	/**Books**/
 	public void addBook(String title, String date, String publisher, String bookID);
 	public void removeBook(int bookID);
-	public List<Book> getBook();
+	public Collection<Book> getBook();
 	
 	public Book getBookbytitle(String title);
 	public Book getBookbyyear(String year);
