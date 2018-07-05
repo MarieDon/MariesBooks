@@ -3,7 +3,7 @@ package bookapi.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class User implements Comparable <User>{
 	static Long counter = 01L;
 public String fName;
 public String lName;
@@ -89,6 +89,11 @@ public void setJob(String job) {
 public String toString() {
 	return "User [fName=" + fName + ", lName=" + lName + ", age=" + age + ", gender=" + gender + ", job=" + job
 			+ ", userID=" + userID + "]";
+}
+
+@Override
+public int compareTo(User user) {
+	return this.fName.compareTo(user.fName);
 }
 
 
