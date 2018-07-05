@@ -1,22 +1,37 @@
 package bookapi.models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class User {
+	static Long counter = 01L;
 public String fName;
 public String lName;
-public int age;
-public char gender;
+public String age;
+public String gender;
 public String job;
 public Long userID;
+public Map<Long, Ratings> UserRatings= new HashMap<> ();
 
 
-public User(String fName, String lName, int age, char gender, String job, Long userID) {
-	super();
+
+//public User(String fName, String lName, int age, char gender, String job) {
+//	this.userID = counter++;
+//	this.fName = fName;
+//	this.lName = lName;
+//	this.age = age;
+//	this.gender = gender;
+//	this.job = job;
+//}
+
+
+public User(String fName, String lName, String age, String gender, String job) {
+	this.userID = counter++;
 	this.fName = fName;
 	this.lName = lName;
 	this.age = age;
 	this.gender = gender;
 	this.job = job;
-	this.userID = userID;
 }
 
 
@@ -40,22 +55,22 @@ public void setlName(String lName) {
 }
 
 
-public int getAge() {
+public String getAge() {
 	return age;
 }
 
 
-public void setAge(int age) {
+public void setAge(String age) {
 	this.age = age;
 }
 
 
-public char getGender() {
+public String getGender() {
 	return gender;
 }
 
 
-public void setGender(char gender) {
+public void setGender(String gender) {
 	this.gender = gender;
 }
 

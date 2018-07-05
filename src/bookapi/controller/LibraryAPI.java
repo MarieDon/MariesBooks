@@ -10,13 +10,13 @@ import bookapi.models.User;
 public interface LibraryAPI {
 	
 	/**Users**/
-	public void addUser(String fName, String lName, int age, char gender, String job);
-	public void removeUser(int userID);
+	public void addUser(String fName, String lName, String age, String gender, String job);
+	public void removeUser(Long userID);
 	public Collection<User> getUser();
 	
 	/**Books**/
-	public void addBook(String title, String date, String publisher, String bookID);
-	public void removeBook(int bookID);
+	public void addBook(String title, String date, String publisher);
+	public void removeBook(Long bookID);
 	public Collection<Book> getBook();
 	
 	public Book getBookbytitle(String title);
