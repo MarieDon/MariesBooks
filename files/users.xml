@@ -1,0 +1,187 @@
+<object-stream>
+  <java.util.Stack serialization="custom">
+    <unserializable-parents/>
+    <vector>
+      <default>
+        <capacityIncrement>0</capacityIncrement>
+        <elementCount>3</elementCount>
+        <elementData>
+          <map>
+            <entry>
+              <long>1</long>
+              <bookapi.models.User>
+                <fName>Leonard</fName>
+                <lName>Hernandez</lName>
+                <age>24</age>
+                <gender>M</gender>
+                <job>technician</job>
+                <userID>1</userID>
+                <UserRatings/>
+              </bookapi.models.User>
+            </entry>
+            <entry>
+              <long>2</long>
+              <bookapi.models.User>
+                <fName>Melody</fName>
+                <lName>Roberson</lName>
+                <age>53</age>
+                <gender>F</gender>
+                <job>other</job>
+                <userID>2</userID>
+                <UserRatings/>
+              </bookapi.models.User>
+            </entry>
+            <entry>
+              <long>3</long>
+              <bookapi.models.User>
+                <fName>Gregory</fName>
+                <lName>Newton</lName>
+                <age>23</age>
+                <gender>M</gender>
+                <job>writer</job>
+                <userID>3</userID>
+                <UserRatings/>
+              </bookapi.models.User>
+            </entry>
+            <entry>
+              <long>4</long>
+              <bookapi.models.User>
+                <fName>Oliver</fName>
+                <lName>George</lName>
+                <age>24</age>
+                <gender>M</gender>
+                <job>technician</job>
+                <userID>4</userID>
+                <UserRatings/>
+              </bookapi.models.User>
+            </entry>
+            <entry>
+              <long>5</long>
+              <bookapi.models.User>
+                <fName>Jenna</fName>
+                <lName>Parker</lName>
+                <age>33</age>
+                <gender>F</gender>
+                <job>other</job>
+                <userID>5</userID>
+                <UserRatings/>
+              </bookapi.models.User>
+            </entry>
+            <entry>
+              <long>6</long>
+              <bookapi.models.User>
+                <fName>Eoin</fName>
+                <lName>Kelly</lName>
+                <age>32</age>
+                <gender>M</gender>
+                <job>Programmer</job>
+                <userID>6</userID>
+                <UserRatings/>
+              </bookapi.models.User>
+            </entry>
+          </map>
+          <map>
+            <entry>
+              <long>1</long>
+              <bookapi.models.Book>
+                <title>High Fidelity</title>
+                <date>01-Jan-1995</date>
+                <publisher>Nick Hornby</publisher>
+                <bookID>1</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>2</long>
+              <bookapi.models.Book>
+                <title>Wicked</title>
+                <date>01-Jan-1995</date>
+                <publisher>Gregory Maguire </publisher>
+                <bookID>2</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>3</long>
+              <bookapi.models.Book>
+                <title>A Child Called It</title>
+                <date>01-Jan-1995</date>
+                <publisher>Dave Pelzer</publisher>
+                <bookID>3</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>4</long>
+              <bookapi.models.Book>
+                <title>Kiss the Girls</title>
+                <date>01-Jan-1995</date>
+                <publisher>James Patterson </publisher>
+                <bookID>4</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>5</long>
+              <bookapi.models.Book>
+                <title>Where the Heart Is</title>
+                <date>01-Jan-1995</date>
+                <publisher>Billy Lets</publisher>
+                <bookID>5</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>6</long>
+              <bookapi.models.Book>
+                <title>Blindness </title>
+                <date>01-Jan-1995</date>
+                <publisher> Jose Saramago </publisher>
+                <bookID>6</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>7</long>
+              <bookapi.models.Book>
+                <title>The Reader </title>
+                <date>01-Jan-1995</date>
+                <publisher>Bernhard Schlink </publisher>
+                <bookID>7</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>8</long>
+              <bookapi.models.Book>
+                <title>The Rainmaker </title>
+                <date>01-Jan-1995</date>
+                <publisher> John Grisham</publisher>
+                <bookID>8</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+            <entry>
+              <long>9</long>
+              <bookapi.models.Book>
+                <title>Lies My Teacher Told Me </title>
+                <date>22-Jan-1996</date>
+                <publisher>James W. Loewen </publisher>
+                <bookID>9</bookID>
+                <BookRatings/>
+              </bookapi.models.Book>
+            </entry>
+          </map>
+          <map/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+        </elementData>
+      </default>
+    </vector>
+  </java.util.Stack>
+</object-stream>
