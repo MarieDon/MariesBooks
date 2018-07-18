@@ -11,16 +11,9 @@ public class User implements Comparable<User> {
 	public String gender;
 	public String job;
 	public Long userID;
+	
 	public Map<Long, Ratings> UserRatings = new HashMap<>();
 
-	// public User(String fName, String lName, int age, char gender, String job) {
-	// this.userID = counter++;
-	// this.fName = fName;
-	// this.lName = lName;
-	// this.age = age;
-	// this.gender = gender;
-	// this.job = job;
-	// }
 
 	public User(String fName, String lName, String age, String gender, String job) {
 		this.userID = counter++;

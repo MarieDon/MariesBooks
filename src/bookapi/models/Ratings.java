@@ -1,52 +1,33 @@
 package bookapi.models;
+import static com.google.common.base.MoreObjects.toStringHelper;
 
 public class Ratings {
-     public int rating;
-     public int userID;
-     public int bookID;
+	 public float ratings;
+     public Long id;
+     public Long userID;
+     public Long bookID;
+     static Long counter = 01L;
      
-     
-	public Ratings(int rating, int userID, int bookID) {
-		super();
-		this.rating = rating;
+	public Ratings(Long userID, Long bookID, float ratings) {
+		this.ratings = ratings;
+		this.id = counter++;
 		this.userID = userID;
 		this.bookID = bookID;
+		
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Ratings [ratings=" + ratings + ", id=" + id + ", userID=" + userID + ", bookID=" + bookID + "]";
+//	}
 
-	public int getRating() {
-		return rating;
-	}
-
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-
-	public int getUserID() {
-		return userID;
-	}
-
-
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
-
-
-	public int getBookID() {
-		return bookID;
-	}
-
-
-	public void setBookID(int bookID) {
-		this.bookID = bookID;
-	}
+	
 
 
 	@Override
 	public String toString() {
-		return "Ratings [rating=" + rating + ", userID=" + userID + ", bookID=" + bookID + "]";
+		return toStringHelper(this).addValue(id)
+			   .addValue(userID).addValue(bookID).addValue(ratings).toString();
 	}
      
      

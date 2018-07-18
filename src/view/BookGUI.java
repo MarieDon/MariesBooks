@@ -1,11 +1,16 @@
 package view;
 
 import java.io.File;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.TreeSet;
+
 import bookapi.controller.BookRecommenderAPI;
 import bookapi.controller.EasyScanner;
 import bookapi.models.Book;
+import bookapi.models.Ratings;
 import bookapi.models.User;
 import utils.Serializer;
 import utils.XMLSerializer;
@@ -13,6 +18,7 @@ import utils.XMLSerializer;
 public class BookGUI {
 	public BookRecommenderAPI bookAPI = new BookRecommenderAPI();
 	public Long id;
+	public String title;
 
 	// Make a constructor of the BookGUI class to load the users.xml file 
 	//for reading and writing
@@ -36,7 +42,7 @@ public class BookGUI {
 			switch (choice) {
 			case 0:
 				myBook.bookAPI.loadData();
-				System.out.println("Data was loded successfully");
+				System.out.println("Data was loaded successfully");
 				break;
 				
 			case 1:
@@ -56,24 +62,31 @@ public class BookGUI {
 				break;
 
 			case 5:
+				myBook.getAllBooks();
 				break;
 
 			case 6:
+				myBook.getbookByTitle();
 				break;
 
 			case 7:
+				myBook.addBookToSystem();
 				break;
 
 			case 8:
+				myBook.removeBook();
 				break;
 
 			case 9:
+				myBook.getTop10();
 				break;
 
 			case 10:
+				myBook.getUserRatings();
 				break;
 
 			case 11:
+				myBook.myRatings();
 				break;
 
 			case 12:
@@ -89,6 +102,8 @@ public class BookGUI {
 				break;
 
 			case 16:
+				System.out.println("Thank you for using my system. Goodbye");
+				myBook.bookAPI.store();
 				break;
 			}
 
@@ -105,10 +120,12 @@ public class BookGUI {
 
 		// bookAPI.addBook("Adventures", "2018", "J.K Rowling");
 		// bookAPI.addBook("Summer", "2010", "M. Donoval");
-		// bookAPI.addBook("Rush Hour", "2008", "Julie Halligan");
+		
 
-		// Collection<Book> book = bookAPI.getBook();
-		// System.out.println("This prints All Book " + book);
+			System.out.println(myBook.bookAPI.getUserRatings(1l));
+			
+		 Collection<Ratings> book = myBook.bookAPI.getRatings();
+		 //System.out.println("This prints All Book " + book);
 		//
 		// Book myBook = bookAPI.getBookbytitle("Wicked");
 		// System.out.println("this prints the Book Title " + myBook);
@@ -119,7 +136,7 @@ public class BookGUI {
 		//
 		//
 		//
-		//// bookAPI.addUser("Eoin", "Kelly", 20, 'M', "Programmer");
+		
 		//// bookAPI.addUser("Ola", "Bartos", 20, 'F', "tattooer");
 		//// bookAPI.addUser("Andis", "Zeibots", 20, 'M', "Gamer");
 		//
@@ -128,11 +145,12 @@ public class BookGUI {
 	}
 
 
+
 	/*
 	 * Print a menu to the screen
 	 */
 	public void menu() {
-		System.out.println("0. Load Data From File");
+		System.out.println("0. Load data from file");
 		System.out.println("1. View all users.");
 		System.out.println("2. Find user by ID.");
 		System.out.println("3. Create new user.");
@@ -181,14 +199,14 @@ public class BookGUI {
 	/*
 	 * Add user to the system only if all field are filled in
 	 */
-	private void addUserToSystem() {
+	public void addUserToSystem() {
 		System.out.println("Please add your first name");
 		String fName = EasyScanner.nextString();
 		
 		System.out.println("Please enter your last name");
 		String lName = EasyScanner.nextString();
 		
-		System.out.println("Please enter your");
+		System.out.println("Please enter your age");
 		String age = EasyScanner.nextString();
 		
 		System.out.println("Please enter a gender");
@@ -202,7 +220,7 @@ public class BookGUI {
 			bookAPI.addUser(fName, lName, age, gender, job);
 			System.out.println(fName +" " + lName + " Was added to the system" );
 		}else {
-			System.out.println("All filed must be filled in to add the person to the system");
+			System.out.println("All fields must be filled in to add the person to the system");
 		}
 	}
 	
@@ -235,10 +253,70 @@ public class BookGUI {
 		}
 	}
 
-	public void getbookById() {
-		System.out.println("Please enter the id of the persome you want to remove");
-		id = EasyScanner.nextLong();
-		Book user = bookAPI.getBookById(id);
-		System.out.println(user);
+	public void getbookByTitle() {
+		System.out.println("Please enter the title of the book you want to remove");
+		title = EasyScanner.nextString();
+		Book book = bookAPI.getBookbytitle(title);
+		System.out.println(book);
 	}
+	
+	/*
+	 * Add book to the system only if all field are filled in
+	 */
+	public void addBookToSystem() {
+		System.out.println("Please enter title");
+		String title = EasyScanner.nextString();
+		
+		System.out.println("Please enter date");
+		String date = EasyScanner.nextString();
+		
+		System.out.println("Please enter publisher");
+		String publisher = EasyScanner.nextString();
+		
+	
+		//check to see if all fields are filled in by the user and if they are adding book to system
+		if(!title.equals("") && !date.equals("") && !publisher.equals("")) {
+			bookAPI.addBook(title, date, publisher);
+			System.out.println(title + " Was added to the system" );
+		}else {
+			System.out.println("All fields must be filled in to add the book to the system");
+		}
+	}
+	
+	/*
+	 * Delete a book from the system based on the id that is entered
+	 */
+	public void removeBook() {
+		System.out.println("Please enter the id of the book you want to delete from the system");
+		id = EasyScanner.nextLong();
+		Book bookdeleted = bookAPI.getBookById(id);
+		
+		//check to see if a book is found if the book is found then delete it 
+		if(bookdeleted != null) {
+			System.out.println("The user " + bookdeleted.getTitle() + " has been deleted");
+			bookAPI.removeBook(id);
+		}else {
+			System.out.println("No book with that id is in the system");
+		}
+	}
+	
+	public void getTop10 () {
+		bookAPI.getTop10();
+	}
+	
+	public void getUserRatings() {
+		System.out.println("Please enter the id of the user  you want to get the ratings for");
+		id = EasyScanner.nextLong();
+		System.out.println(bookAPI.getUserRatings(id)); 
+	}
+	
+	public void myRatings() {
+		Collection<Ratings> book = bookAPI.getRatings();
+		 System.out.println(book);
+	}
+	
+	public void getRatingss() {
+		bookAPI.getRating(1L);
+	}
+	
 }

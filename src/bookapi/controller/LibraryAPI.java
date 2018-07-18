@@ -2,6 +2,7 @@ package bookapi.controller;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import bookapi.models.Book;
 import bookapi.models.Ratings;
@@ -30,9 +31,9 @@ public interface LibraryAPI {
 	public List<Book> getTop10();
 
 	/** Ratings **/
-	public void addRating(int rating, int userID, int bookID);
+	public void addRating(Long userID, Long bookID, float ratings);
 
-	public List<Ratings> getUserRatings(int userID);
+	public Map<Long, Ratings> getUserRatings(Long userID);
 
-	public List<Book> getBookRatings(int bookID);
+	public Map<Long, Book> getBookRatings(Long bookID);
 }
