@@ -90,57 +90,19 @@ public class BookGUI {
 				break;
 
 			case 12:
+				myBook.addRating();
 				break;
 
 			case 13:
-				break;
-
-			case 14:
-				break;
-
-			case 15:
-				break;
-
-			case 16:
 				System.out.println("Thank you for using my system. Goodbye");
+				
+				//When user enters 13 into the menu the file gets saved
 				myBook.bookAPI.store();
 				break;
 			}
 
-		} while (choice != 16);
-
+		} while (choice != 13);
 		
-		
-		//When user enters 16 into the menu the file gets saved
-		myBook.bookAPI.store();
-
-
-//		myBook.getAllUsers();
-//		myBook.getAllBooks();
-
-		// bookAPI.addBook("Adventures", "2018", "J.K Rowling");
-		// bookAPI.addBook("Summer", "2010", "M. Donoval");
-		
-
-			System.out.println(myBook.bookAPI.getUserRatings(1l));
-			
-		 Collection<Ratings> book = myBook.bookAPI.getRatings();
-		 //System.out.println("This prints All Book " + book);
-		//
-		// Book myBook = bookAPI.getBookbytitle("Wicked");
-		// System.out.println("this prints the Book Title " + myBook);
-		// bookAPI.removeBook(2L);
-		// //bookAPI.addBook("Rat Tail", "2002", "Ola Bartos");
-		//
-		// System.out.println("Deleted Book " + book);
-		//
-		//
-		//
-		
-		//// bookAPI.addUser("Ola", "Bartos", 20, 'F', "tattooer");
-		//// bookAPI.addUser("Andis", "Zeibots", 20, 'M', "Gamer");
-		//
-		//
 		
 	}
 
@@ -163,10 +125,8 @@ public class BookGUI {
 		System.out.println("10. View user ratings.");
 		System.out.println("11. View book ratings.");
 		System.out.println("12. Add rating.");
-		System.out.println("13. Remove rating.");
-		System.out.println("14. Recommendation");
-		System.out.println("15.");
-		System.out.println("16. Exit.");
+		System.out.println("13. Exit.");
+		
 	}
 	
 	/*
@@ -186,9 +146,10 @@ public class BookGUI {
 	 * Gets a single user depending on the number the user enters
 	 */
 	public void getSingleUser() { 
-		System.out.println("Please enter the id of the persome you want to remove");
+		System.out.println("Please enter the id of the person you want to retrieve");
 		id = EasyScanner.nextLong();
 		User user = bookAPI.getUserById(id);
+		//Check to see if the user exists
 		if(user == null) {
 			System.out.println("There is no user with that id please try again");
 		}else {
@@ -254,7 +215,7 @@ public class BookGUI {
 	}
 
 	public void getbookByTitle() {
-		System.out.println("Please enter the title of the book you want to remove");
+		System.out.println("Please enter the title of the book you want to retrive");
 		title = EasyScanner.nextString();
 		Book book = bookAPI.getBookbytitle(title);
 		System.out.println(book);
@@ -293,7 +254,7 @@ public class BookGUI {
 		
 		//check to see if a book is found if the book is found then delete it 
 		if(bookdeleted != null) {
-			System.out.println("The user " + bookdeleted.getTitle() + " has been deleted");
+			System.out.println("The book " + bookdeleted.getTitle() + " has been deleted");
 			bookAPI.removeBook(id);
 		}else {
 			System.out.println("No book with that id is in the system");
@@ -304,8 +265,26 @@ public class BookGUI {
 		bookAPI.getTop10();
 	}
 	
+	public void addRating() {
+		long userID = 0;
+		long bookID = 0;
+		int rating = 0;
+	
+	    System.out.println("Please enter user ID");
+	    userID = EasyScanner.nextLong();
+	    System.out.println("Please enter book ID");
+	    bookID = EasyScanner.nextLong();
+	    System.out.println("Please enter a rating");
+	    rating = EasyScanner.nextInt();
+	    
+	   bookAPI.addRating(userID, bookID, rating);
+	   
+		
+	    
+		
+	}
 	public void getUserRatings() {
-		System.out.println("Please enter the id of the user  you want to get the ratings for");
+		System.out.println("Please enter the ID of the user  you want to get the ratings for");
 		id = EasyScanner.nextLong();
 		System.out.println(bookAPI.getUserRatings(id)); 
 	}
