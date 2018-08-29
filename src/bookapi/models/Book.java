@@ -1,5 +1,7 @@
 package bookapi.models;
 
+import static com.google.common.base.MoreObjects.toStringHelper;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +11,7 @@ public class Book implements Comparable<Book> {
 	public String date;
 	public String publisher;
 	public Long bookID;
+	public float rating = 0;
 	public Map<Long, Ratings> BookRatings = new HashMap<>();
 
 	public Book(String title, String date, String publisher) {
@@ -53,7 +56,10 @@ public class Book implements Comparable<Book> {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", date=" + date + ", publisher=" + publisher + ", bookID=" + bookID + "]";
+		return toStringHelper(this).addValue(bookID)
+				.addValue(title)
+				.addValue(date)
+				.addValue(publisher).toString() ;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package bookapi.models;
 
 import java.util.HashMap;
 import java.util.Map;
+import static com.google.common.base.MoreObjects.toStringHelper;
 
 public class User implements Comparable<User> {
 	static Long counter = 01L;
@@ -74,8 +75,12 @@ public class User implements Comparable<User> {
 
 	@Override
 	public String toString() {
-		return "User [fName=" + fName + ", lName=" + lName + ", age=" + age + ", gender=" + gender + ", job=" + job
-				+ ", userID=" + userID + "]";
+		return toStringHelper(this).addValue(userID)
+				.addValue(fName)
+				.addValue(lName)
+				.addValue(age)
+				.addValue(gender)
+				.addValue(job).toString() ;
 	}
 
 	@Override

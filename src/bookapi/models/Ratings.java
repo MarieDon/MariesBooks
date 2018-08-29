@@ -8,11 +8,11 @@ public class Ratings {
      public Long bookID;
      static Long counter = 01L;
      
-	public Ratings(Long userID, Long bookID, float ratings) {
-		this.ratings = ratings;
+	public Ratings(Long userID, Long bookID, int ratings) {
 		this.id = counter++;
 		this.userID = userID;
 		this.bookID = bookID;
+		this.ratings =  ratings;
 		
 	}
 

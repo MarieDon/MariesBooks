@@ -28,10 +28,10 @@ public interface LibraryAPI {
 
 	public Book getBookById(Long id);
 
-	public List<Book> getTop10();
+	public void getTop10();
 
 	/** Ratings **/
-	public void addRating(Long userID, Long bookID, float ratings);
+	public void addRating(Long userID, Long bookID, int ratings);
 
 	public Map<Long, Ratings> getUserRatings(Long userID);
 

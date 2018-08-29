@@ -4,7 +4,7 @@
     <vector>
       <default>
         <capacityIncrement>0</capacityIncrement>
-        <elementCount>18</elementCount>
+        <elementCount>21</elementCount>
         <elementData>
           <map>
             <entry>
@@ -394,6 +394,7 @@
                 <date>01-Jan-1995</date>
                 <publisher>Nick Hornby</publisher>
                 <bookID>1</bookID>
+                <rating>25.0</rating>
                 <BookRatings>
                   <entry>
                     <long>1</long>
@@ -433,6 +434,7 @@
                 <date>01-Jan-1995</date>
                 <publisher>Gregory Maguire </publisher>
                 <bookID>2</bookID>
+                <rating>5.0</rating>
                 <BookRatings>
                   <entry>
                     <long>8</long>
@@ -464,6 +466,7 @@
                 <date>01-Jan-1995</date>
                 <publisher>Dave Pelzer</publisher>
                 <bookID>3</bookID>
+                <rating>10.0</rating>
                 <BookRatings>
                   <entry>
                     <long>16</long>
@@ -499,6 +502,7 @@
                 <date>01-Jan-1995</date>
                 <publisher>James Patterson </publisher>
                 <bookID>4</bookID>
+                <rating>-6.0</rating>
                 <BookRatings>
                   <entry>
                     <long>19</long>
@@ -542,6 +546,7 @@
                 <date>01-Jan-1995</date>
                 <publisher>Billy Lets</publisher>
                 <bookID>5</bookID>
+                <rating>-13.0</rating>
                 <BookRatings>
                   <entry>
                     <long>27</long>
@@ -573,6 +578,7 @@
                 <date>01-Jan-1995</date>
                 <publisher> Jose Saramago </publisher>
                 <bookID>6</bookID>
+                <rating>1.0</rating>
                 <BookRatings>
                   <entry>
                     <long>32</long>
@@ -588,6 +594,7 @@
                 <date>01-Jan-1995</date>
                 <publisher>Bernhard Schlink </publisher>
                 <bookID>7</bookID>
+                <rating>5.0</rating>
                 <BookRatings>
                   <entry>
                     <long>33</long>
@@ -619,6 +626,7 @@
                 <date>01-Jan-1995</date>
                 <publisher> John Grisham</publisher>
                 <bookID>8</bookID>
+                <rating>9.0</rating>
                 <BookRatings>
                   <entry>
                     <long>38</long>
@@ -642,6 +650,7 @@
                 <date>22-Jan-1996</date>
                 <publisher>James W. Loewen </publisher>
                 <bookID>9</bookID>
+                <rating>-4.0</rating>
                 <BookRatings>
                   <entry>
                     <long>41</long>
@@ -905,6 +914,26 @@
           <map reference="../map"/>
           <map reference="../map[2]"/>
           <map reference="../map[3]"/>
+          <map reference="../map"/>
+          <map reference="../map[2]"/>
+          <map reference="../map[3]"/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
+          <null/>
           <null/>
           <null/>
         </elementData>

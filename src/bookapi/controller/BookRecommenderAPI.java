@@ -16,6 +16,7 @@ import com.google.common.base.Optional;
 import bookapi.models.Book;
 import bookapi.models.Ratings;
 import bookapi.models.User;
+import utils.CompareByID;
 import utils.Serializer;
 
 public class BookRecommenderAPI implements LibraryAPI {
@@ -88,7 +89,7 @@ public class BookRecommenderAPI implements LibraryAPI {
 	    	if (ratingArray.length == 4)
 	    	{
 	    		addRating(Long.valueOf(ratingArray[0]), Long.valueOf(ratingArray[1]),
-	    				Float.valueOf(ratingArray[2]));
+	    				Integer.valueOf(ratingArray[2]));
 	    		System.out.println(ratingArray[0]+" " + Long.valueOf(ratingArray[1]) + " "+ Long.valueOf(ratingArray[2]) +" " + Float.valueOf(ratingArray[3]));
 	    	}else{
 	    		scanner.close();
@@ -211,24 +212,24 @@ public class BookRecommenderAPI implements LibraryAPI {
 	 * Get the top 10 books
 	 */
 	@Override
-	public List<Book> getTop10() {
+	public void  getTop10() {
 		List<Book> Top10= new ArrayList<Book>(books.values());
-		Collections.sort(Top10);//, new ComparatorByID.reversed());
+		Collections.sort(Top10, new CompareByID().reversed());
 		Iterator<Book> Sorting= Top10.iterator();
 		
 		while (Sorting.hasNext())
 		{
 			Book b = Sorting.next();
-			System.out.println(b.title);
+			System.out.println(b.title + "  " +(b.rating / b.BookRatings.size()));
 			
 		}
-		return Top10;
+	
 	}
 
 	/********* Rating Methods *********/
 
 	@Override
-	public void addRating(Long userID, Long bookID, float ratings) {
+	public void addRating(Long userID, Long bookID, int ratings) {
 		Ratings rating;
 		Optional<User> user = Optional.fromNullable(users.get(userID));
 		Optional<Book> book = Optional.fromNullable(books.get(bookID));
@@ -237,6 +238,9 @@ public class BookRecommenderAPI implements LibraryAPI {
 			user.get().UserRatings.put(rating.id, rating);
 			book.get().BookRatings.put(rating.id, rating);
 			ratingIndex.put(rating.id,rating);
+			
+			
+			book.get().rating = book.get().rating + ratings;
 			
 			
 		}
